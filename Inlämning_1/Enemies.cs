@@ -40,14 +40,5 @@ namespace Inlämning_1
             }
 
 
-
-       
-        public MobType (string name, int HP, int power)
-        {
-            Name = name;
-            MaxHealt = HP;
-            Strenght = power;
-        }
-
     }
 }
