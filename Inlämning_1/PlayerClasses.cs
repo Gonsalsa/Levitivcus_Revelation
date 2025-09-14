@@ -5,7 +5,7 @@ namespace Inlämning_1
 {
     public class PlayerClasses
     {
-        public class Gunslinger
+        public class Gunslinger 
         {
             Random random = new Random();
 
@@ -13,7 +13,7 @@ namespace Inlämning_1
             public int MaxHealth = 25;
             public int GunAim = 10;
             public int Strenght = 3;
-            public int StaringAmmo = 30;
+            public int StaringAmmo = 18;
             public int SinLevel = 10;
             public int StartGold = 20;
 
