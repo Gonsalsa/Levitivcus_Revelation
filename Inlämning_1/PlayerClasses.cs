@@ -180,6 +180,8 @@ namespace Inlämning_1
 
 
             //Potatis hej
+            // DOta är bra
+
 
             public Pilgrim(string PilgrimName)
             {
