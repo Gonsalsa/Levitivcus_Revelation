@@ -5,7 +5,7 @@ namespace Inlämning_1
 {
     public class PlayerClasses
     {
-        public class Gunslinger 
+        public class Gunslinger
         {
             Random random = new Random();
 
@@ -35,7 +35,7 @@ namespace Inlämning_1
                 currentHealth = currentHealth + (MaxHealth / 4);
                 startingSupply = startingSupply - 1;
                 Console.WriteLine("You have patched up some of your wounds and got some sleep, you feel better for now.");
-                
+
                 if (currentHealth > MaxHealth)
                 {
                     currentHealth = MaxHealth;
@@ -242,9 +242,9 @@ namespace Inlämning_1
                 }
             }
         }
-    
-        
-        
+
+
+
     }
 
 

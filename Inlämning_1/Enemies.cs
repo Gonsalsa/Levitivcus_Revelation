@@ -11,37 +11,38 @@ namespace Inlämning_1
         public int Strenght = 4;
         public int goldReward = 3;
 
-        public string[] mobName = {"Infernal Hound", "Dustwalker", "Highwayman", "Evangelist of Revelation", "Corrupted Pilgrim"};
-        public string[] eliteMob = { "Judge of the end times", "Fallen angel", "Cursed Bison" };
+        public string[] mobNames = { "Infernal Hound", "Dustwalker", "Highwayman", "Evangelist of Revelation", "Corrupted Pilgrim" };
+        public string[] eliteMobs = { "Judge of the end times", "Fallen angel", "Cursed Bison" };
 
 
-        public MobType ()
-            {
+        public MobType()
+        {
 
             int isElite = r.Next(1, 6);
 
             if (isElite == 3)
             {
-                int randomName = r.Next(0, eliteMob.Length);
-                
-                Name = eliteMob[randomName];
+                int randomName = r.Next(0, eliteMobs.Length);
+
+                Name = eliteMobs[randomName];
                 MaxHealt = r.Next(5, 26);
                 Strenght = r.Next(4, 15);
                 goldReward = r.Next(3, 10);
-                
 
-            } else
+
+            }
+            else
             {
-                int randomName = r.Next(0,mobName.Length);
+                int randomName = r.Next(0, mobNames.Length);
 
-                Name = mobName[randomName];
-                MaxHealt= r.Next(5, 16);
-                Strenght= r.Next(4, 10);
+                Name = mobNames[randomName];
+                MaxHealt = r.Next(5, 16);
+                Strenght = r.Next(4, 10);
                 goldReward = r.Next(3, 6);
 
             }
-           
-            }
+
+        }
 
 
     }
