@@ -179,7 +179,7 @@ namespace Inlämning_1
             public int startingSupply = 1;
 
 
-
+            //Potatis hej
 
             public Pilgrim(string PilgrimName)
             {
