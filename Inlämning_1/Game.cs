@@ -1,10 +1,35 @@
 ﻿namespace Inlämning_1
 {
-
-   
-
     internal class Game
     {
+        static int IsNumeric(int maxChoices)
+        {
+            int number;
+
+            while (true)
+            {
+                Console.WriteLine("What do you choose? ");
+                string gonnaCheck = Console.ReadLine();
+
+                if (int.TryParse(gonnaCheck, out number))
+                {
+                    if (0 < number && number <= maxChoices)
+                    {
+                        return number;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Pick one from the choices you have");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input, try again");
+                }
+            }
+        }
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("1886, Somewhere on the wast steps of the west.");
@@ -19,10 +44,30 @@
             Console.WriteLine("What class do you wanna play?");
             Console.WriteLine("[1] The gunslinger, a character proficient with their weapon but can't take much hits.");
             Console.WriteLine("[2] The Doctor, a robust character who makes up in health for what they lack in combat abillites.");
-            Console.WriteLine("[3] The pilgrim, a character with much strenght trying to reedem his sins. \n");
+            Console.WriteLine("[3] The pilgrim, a character with much strenght trying to reedem his sins. (HARD MODE) \n");
 
             Console.Write("Enter 1, 2 or 3: ");
-            string classChoice = Console.ReadLine();
+            int classChoice = IsNumeric(3);
+
+            switch (classChoice)
+            {
+                case 1:
+                    Console.WriteLine("Case 1 is printed out");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Case 2 is printed out");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Case 3 is printed out");
+                    break;
+
+                default:
+                    Console.WriteLine("Something is wrong");
+                    break;
+
+            }
 
 
         }

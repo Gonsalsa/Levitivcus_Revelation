@@ -11,16 +11,36 @@ namespace Inlämning_1
 
             public string Name = "The man with no name";
             public int MaxHealth = 25;
+            public int currentHealth = 25;
             public int GunAim = 10;
             public int Strenght = 3;
             public int StaringAmmo = 18;
-            public int SinLevel = 10;
             public int StartGold = 20;
+            public int startingSupply = 3;
 
 
             public Gunslinger(string gunslingerName)
             {
                 Name = gunslingerName;
+            }
+
+            public void Rest()
+            {
+                if (startingSupply <= 0)
+                {
+                    Console.WriteLine("You have no supplies, you can not rest right now.");
+                    return;
+                }
+
+                currentHealth = currentHealth + (MaxHealth / 4);
+                startingSupply = startingSupply - 1;
+                Console.WriteLine("You have patched up some of your wounds and got some sleep, you feel better for now.");
+                
+                if (currentHealth > MaxHealth)
+                {
+                    currentHealth = MaxHealth;
+                }
+
             }
 
             public void Shoot(MobType mobType)
@@ -72,16 +92,36 @@ namespace Inlämning_1
 
             public string Name = "The man with no name";
             public int MaxHealth = 42;
+            public int currentHealth = 42;
             public int GunAim = 5;
             public int Strenght = 5;
             public int StaringAmmo = 12;
-            public int SinLevel = 5;
             public int StartGold = 20;
+            public int startingSupply = 3;
 
 
             public Doctor(string DocName)
             {
                 Name = DocName;
+            }
+
+            public void Rest()
+            {
+                if (startingSupply <= 0)
+                {
+                    Console.WriteLine("You have no supplies, you can not rest right now.");
+                    return;
+                }
+
+                currentHealth = currentHealth + (MaxHealth / 3);
+                startingSupply = startingSupply - 1;
+                Console.WriteLine("You have patched up some of your wounds and got some sleep, you feel better for now.");
+
+                if (currentHealth > MaxHealth)
+                {
+                    currentHealth = MaxHealth;
+                }
+
             }
 
             public void Shoot(MobType mobType)
@@ -131,17 +171,38 @@ namespace Inlämning_1
 
             public string Name = "The penitent one";
             public int MaxHealth = 50;
+            public int currentHealth = 50;
             public int GunAim = 2;
             public int Strenght = 10;
             public int StaringAmmo = 0;
-            public int SinLevel = 1;
             public int StartGold = 5;
+            public int startingSupply = 1;
+
 
 
 
             public Pilgrim(string PilgrimName)
             {
                 Name = PilgrimName;
+            }
+
+            public void Rest()
+            {
+                if (startingSupply <= 0)
+                {
+                    Console.WriteLine("You have no supplies, you can not rest right now.");
+                    return;
+                }
+
+                currentHealth = currentHealth + (MaxHealth / 3);
+                startingSupply = startingSupply - 1;
+                Console.WriteLine("You have patched up some of your wounds and got some sleep, you feel better for now.");
+
+                if (currentHealth > MaxHealth)
+                {
+                    currentHealth = MaxHealth;
+                }
+
             }
 
             public void Shoot(MobType mobType)
