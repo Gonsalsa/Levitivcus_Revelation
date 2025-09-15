@@ -179,10 +179,6 @@ namespace Inlämning_1
             public int startingSupply = 1;
 
 
-            //Potatis hej
-            // DOta är bra
-
-
             public Pilgrim(string PilgrimName)
             {
                 Name = PilgrimName;
