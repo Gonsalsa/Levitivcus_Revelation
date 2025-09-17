@@ -41,7 +41,7 @@ namespace Inlämning_1
             Console.WriteLine("Now something has happend. Hell is let loose and the west has turned wild.");
             Console.WriteLine("Many like you have started the journey towards Antioch to find a sanctuary in this dying world and find out about");
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("LEVITICUS REVELATION\n \n");
+            Console.WriteLine("\n \n ----- LEVITICUS REVELATION -----\n \n");
             Console.ResetColor();
 
             Console.WriteLine("What class do you wanna play?");
