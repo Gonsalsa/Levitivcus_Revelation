@@ -84,7 +84,8 @@ namespace Inlämning_1
             bool running = true;
             while (running)
             {
-
+                Console.Clear();
+                
             }
 
 

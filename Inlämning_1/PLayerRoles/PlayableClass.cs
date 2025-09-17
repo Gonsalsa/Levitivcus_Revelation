@@ -77,7 +77,7 @@ namespace Inlämning_1.PLayerRoles
                 Console.WriteLine("You have sent the enemy back to the hell they came from. They are now dead.");
             }
         }
-        
+
     }
 }
 
