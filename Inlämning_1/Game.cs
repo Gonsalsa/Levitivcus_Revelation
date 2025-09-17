@@ -1,4 +1,7 @@
-﻿namespace Inlämning_1
+﻿using System.Threading.Channels;
+using Inlämning_1.PLayerRoles;
+
+namespace Inlämning_1
 {
     internal class Game
     {
@@ -52,20 +55,35 @@
             switch (classChoice)
             {
                 case 1:
-                    Console.WriteLine("Case 1 is printed out");
+                    Console.Write("Enter your name: ");
+                    string gunslingerName = Console.ReadLine();
+                    Gunslinger gunslingerPlayer = new Gunslinger(gunslingerName);
+                    gunslingerPlayer.ShowStats();
                     break;
 
                 case 2:
-                    Console.WriteLine("Case 2 is printed out");
+                    Console.Write("Enter your name: ");
+                    string doctorName = Console.ReadLine();
+                    Doctor doctorPlayer = new Doctor(doctorName);
+                    doctorPlayer.ShowStats();
                     break;
 
                 case 3:
-                    Console.WriteLine("Case 3 is printed out");
+                    Console.Write("Enter your name: ");
+                    string pilgrimName = Console.ReadLine();
+                    Pilgrim pilgrimPlayer = new Pilgrim(pilgrimName);
+                    pilgrimPlayer.ShowStats();
                     break;
 
                 default:
                     Console.WriteLine("Something is wrong");
                     break;
+
+            }
+
+            bool running = true;
+            while (running)
+            {
 
             }
 
