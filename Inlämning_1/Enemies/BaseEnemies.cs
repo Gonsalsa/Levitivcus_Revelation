@@ -13,12 +13,7 @@ namespace Inlämning_1.Enemies
         public int MaxHealt = 11;
         public int Strenght = 4;
         public int goldReward = 3;
-    }
-
-    public void Attack(PlayableClass player)
-        {
-
-        }
+    
     }
 
 }

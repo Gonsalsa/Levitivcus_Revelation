@@ -44,8 +44,6 @@ namespace Inlämning_1
             Console.WriteLine("\n \n ----- LEVITICUS REVELATION -----\n \n");
 
 
-            Console.WriteLine("                /||\\\r\n                ||||\r\n                ||||\r\n                |||| /|\\\r\n           /|\\  |||| |||\r\n           |||  |||| |||\r\n           |||  |||| |||\r\n           |||  |||| d||\r\n           |||  |||||||/\r\n           ||b._||||~~'\r\n           \\||||||||\r\n            `~~~||||\r\n                ||||\r\n                ||||\r\n~~~~~~~~~~~~~~~~||||~~~~~~~~~~~~~~\r\n  \\/..__..--  . |||| \\/  .  ..\r\n\\/         \\/ \\/    \\/\r\n        .  \\/              \\/    .\r\n. \\/             .   \\/     .\r\n   __...--..__..__       .     \\/\r\n\\/  .   .    \\/     \\/    __..--..");
-
             Console.ReadKey();
             Console.ResetColor();
             Console.Clear();
