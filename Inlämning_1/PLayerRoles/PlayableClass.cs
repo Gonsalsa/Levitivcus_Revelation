@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inlämning_1.Enemies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -40,7 +41,7 @@ namespace Inlämning_1.PLayerRoles
             }
 
         }
-        public void Shoot(MobType mobType)
+        public void Shoot(BaseEnemies enemy)
         {
             int CriticalHit = random.Next(1, 11);
 
@@ -52,14 +53,14 @@ namespace Inlämning_1.PLayerRoles
                 baseDmg = baseDmg * 2;
             }
 
-            int enemyDmgTaken = mobType.MaxHealt - baseDmg;
-            if (mobType.MaxHealt <= 0)
+            int enemyDmgTaken = enemy.MaxHealt - baseDmg;
+            if (enemy.MaxHealt <= 0)
             {
                 Console.WriteLine("You have sent the enemy back to the hell they came from. They are now dead.");
             }
 
         }
-        public void Stab(MobType mobType)
+        public void Stab(BaseEnemies enemy)
         {
             int CriticalHit = random.Next(1, 11);
 
@@ -71,8 +72,8 @@ namespace Inlämning_1.PLayerRoles
                 baseDmg = baseDmg * 2;
             }
 
-            int enemyDmgTaken = mobType.MaxHealt - baseDmg;
-            if (mobType.MaxHealt <= 0)
+            int enemyDmgTaken = enemy.MaxHealt - baseDmg;
+            if (enemy.MaxHealt <= 0)
             {
                 Console.WriteLine("You have sent the enemy back to the hell they came from. They are now dead.");
             }

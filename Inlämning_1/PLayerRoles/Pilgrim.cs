@@ -26,7 +26,7 @@ namespace Inlämning_1.PLayerRoles
         public void ShowStats()
         {
             Console.WriteLine($"=== {Name} ===");
-            Console.WriteLine($"Healt: {currentHealth}/{MaxHealth}");
+            Console.WriteLine($"Health: {currentHealth}/{MaxHealth}");
             Console.WriteLine($"Gun aim: {GunAim}");
             Console.WriteLine($"Strenght: {Strenght}");
             Console.WriteLine($"Ammo Count: {StaringAmmo}");

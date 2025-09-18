@@ -42,7 +42,13 @@ namespace Inlämning_1
             Console.WriteLine("Many like you have started the journey towards Antioch to find a sanctuary in this dying world and find out about");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("\n \n ----- LEVITICUS REVELATION -----\n \n");
+
+
+            Console.WriteLine("                /||\\\r\n                ||||\r\n                ||||\r\n                |||| /|\\\r\n           /|\\  |||| |||\r\n           |||  |||| |||\r\n           |||  |||| |||\r\n           |||  |||| d||\r\n           |||  |||||||/\r\n           ||b._||||~~'\r\n           \\||||||||\r\n            `~~~||||\r\n                ||||\r\n                ||||\r\n~~~~~~~~~~~~~~~~||||~~~~~~~~~~~~~~\r\n  \\/..__..--  . |||| \\/  .  ..\r\n\\/         \\/ \\/    \\/\r\n        .  \\/              \\/    .\r\n. \\/             .   \\/     .\r\n   __...--..__..__       .     \\/\r\n\\/  .   .    \\/     \\/    __..--..");
+
+            Console.ReadKey();
             Console.ResetColor();
+            Console.Clear();
 
             Console.WriteLine("What class do you wanna play?");
             Console.WriteLine("[1] The gunslinger, a character proficient with their weapon but can't take much hits.");
@@ -84,8 +90,7 @@ namespace Inlämning_1
             bool running = true;
             while (running)
             {
-                Console.Clear();
-                
+
             }
 
 
