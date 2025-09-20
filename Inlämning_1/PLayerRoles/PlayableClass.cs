@@ -12,13 +12,13 @@ namespace Inlämning_1.PLayerRoles
     {
         Random random = new Random();
 
-
         public string Name = "The man with no name";
+        public string className;
         public int MaxHealth;
         public int currentHealth;
         public int GunAim;
         public int Strenght;
-        public int StaringAmmo;
+        public int bulletCount;
         public int StartGold;
         public int startingSupply;
 
@@ -43,6 +43,12 @@ namespace Inlämning_1.PLayerRoles
         }
         public void Shoot(BaseEnemies enemy)
         {
+            if (bulletCount <= 0)
+            {
+                Console.WriteLine("You have no bullets.");
+                return;
+            }
+
             int CriticalHit = random.Next(1, 11);
 
             int baseDmg = 10 + GunAim;
@@ -53,12 +59,13 @@ namespace Inlämning_1.PLayerRoles
                 baseDmg = baseDmg * 2;
             }
 
-            int enemyDmgTaken = enemy.MaxHealt - baseDmg;
-            if (enemy.MaxHealt <= 0)
+            int enemyDmgTaken = enemy.currentHealth - baseDmg;
+            Console.WriteLine($"You did {enemyDmgTaken} damage to the enemy");
+            if (enemy.currentHealth <= 0)
             {
                 Console.WriteLine("You have sent the enemy back to the hell they came from. They are now dead.");
             }
-
+            bulletCount = bulletCount - 1;
         }
         public void Stab(BaseEnemies enemy)
         {
@@ -72,11 +79,60 @@ namespace Inlämning_1.PLayerRoles
                 baseDmg = baseDmg * 2;
             }
 
-            int enemyDmgTaken = enemy.MaxHealt - baseDmg;
-            if (enemy.MaxHealt <= 0)
+            int enemyDmgTaken = enemy.currentHealth - baseDmg;
+            Console.WriteLine($"You did {enemyDmgTaken} damage to the enemy");
+            if (enemy.currentHealth <= 0)
             {
                 Console.WriteLine("You have sent the enemy back to the hell they came from. They are now dead.");
             }
+        }
+        public void ShowStats()
+        {
+            Console.WriteLine($"=== {Name} ===");
+            Console.WriteLine($"Class: {className}");
+            Console.WriteLine($"Health: {currentHealth}/{MaxHealth}");
+            Console.WriteLine($"Gun aim: {GunAim}");
+            Console.WriteLine($"Strenght: {Strenght}");
+            Console.WriteLine($"Ammo Count: {bulletCount}");
+            Console.WriteLine($"Gold: {StartGold}");
+            Console.WriteLine($"=== {Name} ===");
+        }
+        public void Gunslinger()
+        {
+            className = "Gunslinger";
+            MaxHealth = 25;
+            currentHealth = 25;
+            GunAim = 10;
+            Strenght = 3;
+            bulletCount = 18;
+            StartGold = 20;
+            startingSupply = 3;
+
+        }
+
+        public void Pilgrim()
+        {
+            className = "Pilgrim";
+            MaxHealth = 50;
+            currentHealth = 50;
+            GunAim = 2;
+            Strenght = 10;
+            bulletCount = 0;
+            StartGold = 5;
+            startingSupply = 1;
+
+        }
+
+        public void Doctor()
+        {
+            className = "Doctor";
+            MaxHealth = 42;
+            currentHealth = 42;
+            GunAim = 5;
+            Strenght = 5;
+            bulletCount = 6;
+            StartGold = 10;
+            startingSupply = 3;
         }
 
     }

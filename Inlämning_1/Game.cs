@@ -32,6 +32,7 @@ namespace Inlämning_1
             }
         }
 
+        PlayableClass mainCharacter = new PlayableClass();
 
         static void Main(string[] args)
         {
@@ -42,11 +43,13 @@ namespace Inlämning_1
             Console.WriteLine("Many like you have started the journey towards Antioch to find a sanctuary in this dying world and find out about");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("\n \n ----- LEVITICUS REVELATION -----\n \n");
-
+            Console.WriteLine("Only those who are without sin may find the way");
 
             Console.ReadKey();
             Console.ResetColor();
             Console.Clear();
+
+
 
             Console.WriteLine("What class do you wanna play?");
             Console.WriteLine("[1] The gunslinger, a character proficient with their weapon but can't take much hits.");
@@ -56,27 +59,36 @@ namespace Inlämning_1
             Console.Write("Enter 1, 2 or 3: ");
             int classChoice = IsNumeric(3);
 
+            PlayableClass Player = new PlayableClass();
+
+
             switch (classChoice)
             {
                 case 1:
                     Console.Write("Enter your name: ");
                     string gunslingerName = Console.ReadLine();
-                    Gunslinger gunslingerPlayer = new Gunslinger(gunslingerName);
-                    gunslingerPlayer.ShowStats();
+                    Player.Name = gunslingerName;
+                    Player.Gunslinger();
+                    Player.ShowStats();
+                    Console.ReadKey();
                     break;
 
                 case 2:
                     Console.Write("Enter your name: ");
                     string doctorName = Console.ReadLine();
-                    Doctor doctorPlayer = new Doctor(doctorName);
-                    doctorPlayer.ShowStats();
+                    Player.Name = doctorName;
+                    Player.Doctor();
+                    Player.ShowStats();
+                    Console.ReadKey();
                     break;
 
                 case 3:
                     Console.Write("Enter your name: ");
                     string pilgrimName = Console.ReadLine();
-                    Pilgrim pilgrimPlayer = new Pilgrim(pilgrimName);
-                    pilgrimPlayer.ShowStats();
+                    Player.Name = pilgrimName;
+                    Player.Pilgrim();
+                    Player.ShowStats();
+                    Console.ReadKey();
                     break;
 
                 default:
@@ -88,7 +100,16 @@ namespace Inlämning_1
             bool running = true;
             while (running)
             {
+                if(Player.currentHealth <= 0) 
+                {
+                    Console.WriteLine("Your eyes start to feel heavy and you begin to feel weaker and weaker.");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("YOU HAVE DIED");
+                    Console.ResetColor();
+                    running = false;
+                }
 
+                Console.WriteLine("Main loop now running");
             }
 
 

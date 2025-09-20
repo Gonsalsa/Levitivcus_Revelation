@@ -12,13 +12,14 @@ namespace Inlämning_1.Enemies
         Random r = new Random();
 
         public string Name = "Corrupted Pilgrim";
-        public int MaxHealt = 11;
+        public int maxHealth = 11;
+        public int currentHealth;
         public int Strenght = 4;
         public int goldReward = 3;
-        
+
         public void Attack(PlayableClass player)
         {
-            int chanceToCrit = r.Next(0,11);
+            int chanceToCrit = r.Next(0, 11);
 
             int baseDmg = Strenght;
 
@@ -28,6 +29,15 @@ namespace Inlämning_1.Enemies
             }
 
             int DmgDealt = player.currentHealth - baseDmg;
+            Console.WriteLine($"The enemy did {DmgDealt} damage");
+        }
+
+        public void showStats()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine($"=== {Name} ===");
+            Console.WriteLine($"Hp: {currentHealth}/{maxHealth}");
+            Console.ResetColor();
         }
 
 

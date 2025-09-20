@@ -17,7 +17,7 @@ namespace Inlämning_1.Enemies
             int randomName = r.Next(0, eliteMobs.Length);
 
             Name = eliteMobs[randomName];
-            MaxHealt = r.Next(5, 26);
+            maxHealth = r.Next(5, 26);
             Strenght = r.Next(4, 15);
             goldReward = r.Next(3, 10);
         }

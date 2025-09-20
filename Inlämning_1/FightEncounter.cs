@@ -10,29 +10,189 @@ namespace Inlämning_1
 {
     public class FightEncounter
     {
+
+        static int IsNumeric(int maxChoices)
+        {
+            int number;
+
+            while (true)
+            {
+                Console.WriteLine("What do you choose? ");
+                string gonnaCheck = Console.ReadLine();
+
+                if (int.TryParse(gonnaCheck, out number))
+                {
+                    if (0 < number && number <= maxChoices)
+                    {
+                        return number;
+                    }
+                    else
+                    {
+                        Console.WriteLine("What do you want to do?");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input, try again");
+                }
+            }
+        }
+
         Random r = new Random();
 
-        public void Fight(BaseEnemies newEnemy, PlayableClass player)
+        public void Fight(PlayableClass player)
         {
+
             int chanceOfElite = r.Next(0, 11);
 
             if (chanceOfElite == 4)
             {
-                EliteMOB eliteEnemy = new EliteMOB();
-            } else
-            {
-                regularMOB regularEnemy = new regularMOB();
-            }
+                Console.Clear();
 
-            bool ongoingFight = true;
-            while (ongoingFight)
+                EliteMOB enemy = new EliteMOB();
+                Console.WriteLine($"You have encounterd what looks like a {enemy.Name}!");
+                Console.ReadKey();
+                Console.Clear();
+
+                bool isFighting = true;
+                while (isFighting)
+                {
+                    if (enemy.currentHealth <= 0)
+                    {
+                        player.StartGold = player.StartGold + enemy.goldReward;
+                        isFighting = false;
+
+                    }
+                    else if (player.currentHealth <= 0)
+                    {
+                        isFighting = false;
+                    }
+
+
+
+                    player.ShowStats();
+                    enemy.showStats();
+                    Console.WriteLine("What do you want to do?");
+                    Console.WriteLine("[1] Shoot it");
+                    Console.WriteLine("[2] Stab it");
+                    Console.WriteLine("[3] Try to get away from it");
+
+                    int choice = IsNumeric(3);
+
+                    switch (choice)
+                    {
+                        case 1:
+                            player.Shoot(enemy);
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+
+                        case 2:
+                            player.Stab(enemy);
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+
+                        case 3:
+                            int chanceToFlee = r.Next(1, 6);
+                            if (chanceToFlee == 2)
+                            {
+                                Console.WriteLine("You managed to escape");
+                                isFighting = false;
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                Console.WriteLine("You tried to escape but to no succsess...");
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                            break;
+
+
+                    }
+                    enemy.Attack(player);
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+
+
+            }
+            else
             {
+                Console.Clear();
+
+                regularMOB enemy = new regularMOB();
+                Console.WriteLine($"You have encounterd what looks like a {enemy.Name}!");
+                Console.ReadKey();
+                Console.Clear();
+
+                bool isFighting = true;
+                while (isFighting)
+                {
+                    if (enemy.currentHealth <= 0)
+                    {
+                        player.StartGold = player.StartGold + enemy.goldReward;
+                        isFighting = false;
+
+                    }
+                    else if (player.currentHealth <= 0)
+                    {
+                        isFighting = false;
+                    }
+
+                    player.ShowStats();
+                    enemy.showStats();
+                    Console.WriteLine("What do you want to do?");
+                    Console.WriteLine("[1] Shoot it");
+                    Console.WriteLine("[2] Stab it");
+                    Console.WriteLine("[3] Try to get away from it");
+
+                    int choice = IsNumeric(3);
+
+                    switch (choice)
+                    {
+                        case 1:
+                            player.Shoot(enemy);
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+
+                        case 2:
+                            player.Stab(enemy);
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+
+                        case 3:
+                            int chanceToFlee = r.Next(1, 6);
+                            if (chanceToFlee == 2)
+                            {
+                                Console.WriteLine("You managed to escape");
+                                isFighting = false;
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                Console.WriteLine("You tried to escape but to no succsess...");
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                            break;
+
+
+                    }
+                    enemy.Attack(player);
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+
 
             }
 
 
         }
-
-
     }
 }
