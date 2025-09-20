@@ -9,11 +9,28 @@ namespace Inlämning_1.Enemies
 {
     public class BaseEnemies
     {
+        Random r = new Random();
+
         public string Name = "Corrupted Pilgrim";
         public int MaxHealt = 11;
         public int Strenght = 4;
         public int goldReward = 3;
-    
+        
+        public void Attack(PlayableClass player)
+        {
+            int chanceToCrit = r.Next(0,11);
+
+            int baseDmg = Strenght;
+
+            if (chanceToCrit == 9)
+            {
+                baseDmg = baseDmg * 2;
+            }
+
+            int DmgDealt = player.currentHealth - baseDmg;
+        }
+
+
     }
 
 }
