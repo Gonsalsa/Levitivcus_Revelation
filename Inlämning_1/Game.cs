@@ -98,10 +98,25 @@ namespace Inlämning_1
 
             }
 
+            int numberOfTurns = 1;
+
             bool running = true;
             while (running)
             {
                 Console.Clear();
+
+                if (Player.hasRedemption == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.WriteLine("You feel your soul become lighter and the soft music of heaven fill your ears");
+                    Console.WriteLine("You haven found your peace in the world.");
+                    Console.WriteLine("You have finished the game, thanks for playing!");
+                    Console.ReadKey();
+                    running = false;
+                    break;
+                }
+
 
                 if (Player.currentHealth <= 0)
                 {
@@ -110,6 +125,8 @@ namespace Inlämning_1
                     Console.WriteLine("YOU HAVE DIED");
                     Console.ResetColor();
                     running = false;
+                    Console.ReadKey();
+                    break;
                 }
 
                 LandscapeSettings.landscapeGenerator();
@@ -118,7 +135,60 @@ namespace Inlämning_1
                 FightEncounter.Fight(Player);
                 Console.WriteLine("Press any key to continue.");
                 Console.ReadKey();
+                Console.Clear();
 
+
+
+                bool resting = true;
+                while (resting)
+                {
+
+                    Console.WriteLine("Do you want to rest and regain som Hp?");
+                    Console.WriteLine("[1.] Yes");
+                    Console.WriteLine("[2.] No");
+
+                    int restChoice = IsNumeric(2);
+                    switch (restChoice)
+                    {
+                        case 1:
+                            if (Player.startingSupply > 0)
+                            {
+                                int healthRegen = Player.currentHealth + (Player.MaxHealth / 3);
+                                if (healthRegen + Player.currentHealth > Player.MaxHealth)
+                                {
+                                    Player.currentHealth = Player.MaxHealth;
+                                }
+                                else
+                                {
+                                    Player.currentHealth += healthRegen;                                
+                                }
+                                    Console.WriteLine($"You have recoverd some Hp.");
+                                    Player.startingSupply--;
+                                    resting = false;
+                                    Console.ReadKey();
+                            }
+                            else
+                            {
+                                Console.WriteLine("You have no supplies. Git Gud");
+                                resting = false;
+                                Console.ReadKey();
+                            }
+                            break;
+
+                        case 2:
+                            resting = false;
+                            break;
+                    }
+
+
+                }
+
+                if (numberOfTurns % 5 == 0)
+                {
+                    Shop.EnterShop(Player);
+                }
+
+                numberOfTurns++;
             }
 
 

@@ -21,6 +21,7 @@ namespace Inlämning_1.PLayerRoles
         public int bulletCount;
         public int StartGold;
         public int startingSupply;
+        public bool hasRedemption = false;
 
 
         public void Rest()
@@ -60,11 +61,12 @@ namespace Inlämning_1.PLayerRoles
             }
 
             int enemyDmgTaken = enemy.currentHealth - baseDmg;
-            Console.WriteLine($"You did {enemyDmgTaken} damage to the enemy");
-            if (enemy.currentHealth <= 0)
+            enemy.currentHealth = enemyDmgTaken;
+            Console.WriteLine($"You did {baseDmg} damage to the enemy");
+            /*if (enemy.currentHealth <= 0)
             {
                 Console.WriteLine("You have sent the enemy back to the hell they came from. They are now dead.");
-            }
+            }*/
             bulletCount = bulletCount - 1;
         }
         public void Stab(BaseEnemies enemy)
@@ -80,11 +82,12 @@ namespace Inlämning_1.PLayerRoles
             }
 
             int enemyDmgTaken = enemy.currentHealth - baseDmg;
-            Console.WriteLine($"You did {enemyDmgTaken} damage to the enemy");
-            if (enemy.currentHealth <= 0)
-            {
-                Console.WriteLine("You have sent the enemy back to the hell they came from. They are now dead.");
-            }
+            enemy.currentHealth = enemyDmgTaken;
+            Console.WriteLine($"You did {baseDmg} damage to the enemy");
+            //if (enemy.currentHealth <= 0)
+            //{
+            //    Console.WriteLine("You have sent the enemy back to the hell they came from. They are now dead.");
+            //}
         }
         public void ShowStats()
         {
@@ -94,6 +97,7 @@ namespace Inlämning_1.PLayerRoles
             Console.WriteLine($"Gun aim: {GunAim}");
             Console.WriteLine($"Strenght: {Strenght}");
             Console.WriteLine($"Ammo Count: {bulletCount}");
+            Console.WriteLine($"Supplies: {startingSupply}");
             Console.WriteLine($"Gold: {StartGold}");
             Console.WriteLine($"=== {Name} ===");
         }

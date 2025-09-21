@@ -28,9 +28,9 @@ namespace Inlämning_1.Enemies
                 baseDmg = baseDmg * 2;
             }
 
-            int DmgDealt = player.currentHealth - baseDmg;
-            player.currentHealth = player.currentHealth - DmgDealt;
-            Console.WriteLine($"The enemy did {DmgDealt} damage");
+            int healthAfterDmg = player.currentHealth - baseDmg;
+            player.currentHealth = healthAfterDmg;
+            Console.WriteLine($"The enemy did {baseDmg} damage");
         }
 
         public void showStats()
