@@ -1,4 +1,5 @@
-﻿using System.Threading.Channels;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Threading.Channels;
 using Inlämning_1.PLayerRoles;
 
 namespace Inlämning_1
@@ -100,7 +101,9 @@ namespace Inlämning_1
             bool running = true;
             while (running)
             {
-                if(Player.currentHealth <= 0) 
+                Console.Clear();
+
+                if (Player.currentHealth <= 0)
                 {
                     Console.WriteLine("Your eyes start to feel heavy and you begin to feel weaker and weaker.");
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -109,7 +112,13 @@ namespace Inlämning_1
                     running = false;
                 }
 
-                Console.WriteLine("Main loop now running");
+                LandscapeSettings.landscapeGenerator();
+                Console.ReadKey();
+
+                FightEncounter.Fight(Player);
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+
             }
 
 

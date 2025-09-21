@@ -38,9 +38,9 @@ namespace Inlämning_1
             }
         }
 
-        Random r = new Random();
+        static Random r = new Random();
 
-        public void Fight(PlayableClass player)
+        public static void Fight(PlayableClass player)
         {
 
             int chanceOfElite = r.Next(0, 11);
@@ -51,6 +51,7 @@ namespace Inlämning_1
 
                 EliteMOB enemy = new EliteMOB();
                 Console.WriteLine($"You have encounterd what looks like a {enemy.Name}!");
+                enemy.currentHealth = enemy.maxHealth;
                 Console.ReadKey();
                 Console.Clear();
 
@@ -125,6 +126,7 @@ namespace Inlämning_1
 
                 regularMOB enemy = new regularMOB();
                 Console.WriteLine($"You have encounterd what looks like a {enemy.Name}!");
+                enemy.currentHealth = enemy.maxHealth;
                 Console.ReadKey();
                 Console.Clear();
 
